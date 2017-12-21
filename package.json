@@ -1,5 +1,8 @@
 {
   "name": "blank",
+  "engines": {
+    "node": "6.12.2"
+  },
   "version": "0.0.1",
   "author": "Ionic Framework",
   "homepage": "http://ionicframework.com/",
