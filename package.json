@@ -1,11 +1,11 @@
 {
-  "name": "blank",
+  "name": "ionic-angular-crud",
   "engines": {
     "node": "6.12.2"
   },
   "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "http://ionicframework.com/",
+  "author": "Alexandre Mendes",
+  "homepage": "https://alexandregme.github.io/",
   "private": true,
   "scripts": {
     "clean": "ionic-app-scripts clean",
@@ -38,5 +38,5 @@
     "@ionic/app-scripts": "3.1.6",
     "typescript": "2.4.2"
   },
-  "description": "An Ionic project"
+  "description": "CRUD using Ionic and Angular"
 }

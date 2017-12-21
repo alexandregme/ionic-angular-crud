@@ -1,6 +1,4 @@
 {
-  "name": "blank",
-  "app_id": "",
-  "type": "ionic-angular",
-  "integrations": {}
+  "name": "ionic-angular-crud",
+  "type": "ionic-angular"
 }

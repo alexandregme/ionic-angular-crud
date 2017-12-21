@@ -1,6 +1,6 @@
 {
-  "name": "Ionic",
-  "short_name": "Ionic",
+  "name": "ionic-angular-crud",
+  "short_name": "ionic-angular-crud",
   "start_url": "index.html",
   "display": "standalone",
   "icons": [{
