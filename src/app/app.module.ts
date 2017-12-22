@@ -12,11 +12,23 @@ import { Customers } from '../pages/customers/customers';
 import { CustomerForm } from '../pages/customer-form/customer-form';
 
 export const deepLinkConfig: DeepLinkConfig = <DeepLinkConfig>{
-  links: [{
-    component: Customers, name: "Customer", segment: "customers"
-  }, {
-    component: CustomerForm, name: "Customer detail", segment: "customer/:id", defaultHistory: [Customers]
-  }]
+  links: [
+    {
+      component: Customers,
+      name: "Customer",
+      segment: "customers"
+    },{
+      component: CustomerForm,
+      name: "Customer detail",
+      segment: "customer",
+      defaultHistory: [Customers]
+    }, {
+      component: CustomerForm,
+      name: "Customer detail",
+      segment: "customer/:id",
+      defaultHistory: [Customers]
+    }
+  ]
 };
 
 @NgModule({

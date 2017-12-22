@@ -1,18 +1,28 @@
 <ion-header>
   <ion-navbar>
     <ion-title>Ionic Angular - CRUD Customers</ion-title>
+      <ion-buttons end>
+          <button ion-button icon-only (click)="openCustomerForm()">
+              <ion-icon name="add"></ion-icon>
+          </button>
+      </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
   <ion-list>
       <ion-item *ngFor="let customer of customers">
-          {{customer.name}}
+          {{customer.id}} - {{customer.name}}
+          <ion-buttons end>
+              <button ion-button icon-only (click)="editCustomer(customer.id)">
+                  <ion-icon name="create"></ion-icon>
+              </button>
+          </ion-buttons>
+          <ion-buttons end>
+              <button ion-button icon-only (click)="deleteCustomer(customer)">
+                  <ion-icon name="remove"></ion-icon>
+              </button>
+          </ion-buttons>
       </ion-item>
-    <ion-buttons end>
-      <button ion-button icon-only (click)="editCustomer(1)">
-        <ion-icon name="add"></ion-icon>
-      </button>
-    </ion-buttons>
   </ion-list>
 </ion-content>

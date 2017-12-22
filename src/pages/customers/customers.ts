@@ -15,13 +15,27 @@ export class Customers {
     
     constructor(public navCtrl: NavController, public customerService: CustomerService) {}
 
-    editCustomer(rowid) {
-        this.navCtrl.push(CustomerForm, {
-            id: rowid
+    openCustomerForm(idCustomer) {
+        if (idCustomer){
+            this.navCtrl.push(CustomerForm, {
+                id: idCustomer
+            });
+        }else{
+            this.navCtrl.push(CustomerForm);
+        }
+    }
+
+    deleteCustomer(customer) {
+        this.customerService.deleteCustomer(customer).then(()=>{
+                this.populateCustomers()
         });
     }
 
-    ngOnInit() {
+    populateCustomers(){
         this.customerService.getCustomers().then(customers => this.customers = customers);
+    }
+
+    ngOnInit() {
+        this.populateCustomers();
     }
 }

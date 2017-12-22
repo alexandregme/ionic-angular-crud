@@ -6,6 +6,38 @@
 
 <ion-content>
     <ion-list>
-        <ion-item>Customer Form</ion-item>
+        <ion-item>{{title}}</ion-item>
     </ion-list>
+
+    <form (ngSubmit)="saveCustomer()">
+        <ion-item>
+            <ion-label>name</ion-label>
+            <ion-input type="text" [(ngModel)]="customer.name" name="name"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>email</ion-label>
+            <ion-input [(ngModel)]="customer.email" name="email"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>phone</ion-label>
+            <ion-input [(ngModel)]="customer.phone" name="phone"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>address</ion-label>
+            <ion-input [(ngModel)]="customer.address" name="address"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>city</ion-label>
+            <ion-input [(ngModel)]="customer.city" name="city"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>state</ion-label>
+            <ion-input [(ngModel)]="customer.state" name="state"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>zipcode</ion-label>
+            <ion-input [(ngModel)]="customer.zipcode" name="zipcode"></ion-input>
+        </ion-item>
+        <button ion-button type="submit" block>Save</button>
+    </form>
 </ion-content>
