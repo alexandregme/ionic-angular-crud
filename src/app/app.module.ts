@@ -1,27 +1,40 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
-import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { IonicApp, IonicErrorHandler, IonicModule, DeepLinkConfig } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
-import { HttpModule } from '@angular/http';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
+import { Customers } from '../pages/customers/customers';
+import { CustomerForm } from '../pages/customer-form/customer-form';
+
+export const deepLinkConfig: DeepLinkConfig = <DeepLinkConfig>{
+  links: [{
+    component: Customers, name: "Customer", segment: "customers"
+  }, {
+    component: CustomerForm, name: "Customer detail", segment: "customer/:id", defaultHistory: [Customers]
+  }]
+};
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    Customers,
+    CustomerForm
   ],
   imports: [
     BrowserModule,
-    HttpModule,
-    IonicModule.forRoot(MyApp)
+    FormsModule,
+    HttpClientModule,
+    IonicModule.forRoot(MyApp, {}, deepLinkConfig)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    Customers,
+    CustomerForm
   ],
   providers: [
     StatusBar,
