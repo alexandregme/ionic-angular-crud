@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { MyApp } from './app.component';
+import { CustomerService } from '../services/customer.service';
 import { Customers } from '../pages/customers/customers';
 import { CustomerForm } from '../pages/customer-form/customer-form';
 
@@ -39,6 +40,7 @@ export const deepLinkConfig: DeepLinkConfig = <DeepLinkConfig>{
   providers: [
     StatusBar,
     SplashScreen,
+    CustomerService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
