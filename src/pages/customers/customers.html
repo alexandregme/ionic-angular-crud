@@ -6,7 +6,9 @@
 
 <ion-content>
   <ion-list>
-    <ion-item>Costumers List</ion-item>
+      <ion-item *ngFor="let customer of customers">
+          {{customer.name}}
+      </ion-item>
     <ion-buttons end>
       <button ion-button icon-only (click)="editCustomer(1)">
         <ion-icon name="add"></ion-icon>
