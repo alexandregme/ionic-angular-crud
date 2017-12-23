@@ -8,6 +8,7 @@ import { CustomerRecord } from '../records/customer';
 export class CustomerService {
 
     private customerURL: string = "http://tidy-api-test.herokuapp.com:80/api/v1/customer_data";
+    private headers: any;
 
     constructor(private http: HttpClient) {
         this.headers = new HttpHeaders({ 'Accept':'application/json', 'Content-Type': 'application/x-www-form-urlencoded'});
@@ -21,9 +22,6 @@ export class CustomerService {
     }
 
     createCustomer(customer: CustomerRecord): Promise<CustomerRecord> {
-
-        let body = JSON.stringify({customer: customer});
-
         const body = new HttpParams()
             .set('name', customer.name)
             .set('email', customer.email)

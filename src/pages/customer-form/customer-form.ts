@@ -19,10 +19,10 @@ export class CustomerForm {
         this.id = navParams.get("id");
     }
 
-    saveCustomer(){
-        this.customerService.createCustomer(this.customer).then(
+    saveCustomer() {
+        this.customerService.createCustomer(this.customer).then(() => {
             this.navCtrl.push(Customers)
-        )
+        })
     }
 
     ngOnInit() {
