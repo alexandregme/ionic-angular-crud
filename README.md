@@ -15,7 +15,7 @@ To use Ionics you need to make sure you have node 6.x version installed at your 
 
 ### Deployment with heroku
 - Clone this repository to your github acount.
-- Got to https://dashboard.heroku.com/ .
+- Got to [Heroku Dashboard](https://dashboard.heroku.com/).
 - Create a new app.
 - Inside of this new app go to `Deploy` tab.
 - Select GitHub as your Deployment method.
