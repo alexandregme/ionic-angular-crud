@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, LoadingController } from 'ionic-angular';
+import { ViewController, NavController, LoadingController } from 'ionic-angular';
 import 'rxjs/add/operator/map';
 
 import { CustomerService } from '../../services/customer.service'
@@ -14,7 +14,7 @@ export class CustomersPage {
     public customers: Array<CustomerRecord>;
     public loading: LoadingController;
     
-    constructor(public navCtrl: NavController, public customerService: CustomerService, public loadingCtrl: LoadingController) {}
+    constructor(private viewCtrl: ViewController, public navCtrl: NavController, public customerService: CustomerService, public loadingCtrl: LoadingController) {}
 
     openCustomerForm() {
         this.navCtrl.push(CustomerFormPage);
@@ -47,6 +47,10 @@ export class CustomersPage {
             content: "Please wait...",
         });
         this.loading.present();
+    }
+
+    ionViewWillEnter() {
+        this.viewCtrl.showBackButton(false);
     }
 
     ngOnInit() {
