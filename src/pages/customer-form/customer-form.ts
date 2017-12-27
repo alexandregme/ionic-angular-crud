@@ -25,7 +25,7 @@ export class CustomerFormPage {
 
     saveCustomer() {
         this.presentLoading();
-        if (this.customer) {
+        if (this.customer.id) {
             this.customerService.updateCustomer(this.customer).then(() => {
                 this.navCtrl.push(CustomersPage)
             })
