@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ViewController, NavController, LoadingController } from 'ionic-angular';
+import { ViewController, NavController, LoadingController, Loading} from 'ionic-angular';
 import 'rxjs/add/operator/map';
 
 import { CustomerService } from '../../services/customer.service'
@@ -12,7 +12,7 @@ import { CustomerFormPage } from '../customer-form/customer-form';
 })
 export class CustomersPage {
     public customers: Array<CustomerRecord>;
-    public loading: LoadingController;
+    public loading: Loading;
     
     constructor(private viewCtrl: ViewController, public navCtrl: NavController, public customerService: CustomerService, public loadingCtrl: LoadingController) {}
 
@@ -43,9 +43,6 @@ export class CustomersPage {
     }
 
     presentLoading() {
-        this.loading = this.loadingCtrl.create({
-            content: "Please wait...",
-        });
         this.loading.present();
     }
 
@@ -54,6 +51,9 @@ export class CustomersPage {
     }
 
     ngOnInit() {
+        this.loading = this.loadingCtrl.create({
+            content: "Please wait...",
+        });
         this.populateCustomers();
     }
 }

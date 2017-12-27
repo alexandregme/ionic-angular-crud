@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, LoadingController } from 'ionic-angular';
+import { NavController, NavParams, LoadingController, Loading } from 'ionic-angular';
 import 'rxjs/add/operator/map';
 
 import { CustomerService } from '../../services/customer.service'
@@ -13,7 +13,7 @@ import { CustomersPage } from '../customers/customers';
 export class CustomerFormPage {
     public customer: CustomerRecord;
     public title: string;
-    public loading: LoadingController;
+    public loading: Loading;
 
     constructor(public navCtrl: NavController, public navParams: NavParams, public customerService: CustomerService, public loadingCtrl: LoadingController) {
         this.customer = navParams.data;
@@ -42,13 +42,14 @@ export class CustomerFormPage {
     }
 
     presentLoading() {
-        this.loading = this.loadingCtrl.create({
-            content: "Please wait...",
-        });
         this.loading.present();
     }
 
     ngOnInit() {
+        this.loading = this.loadingCtrl.create({
+            content: "Please wait...",
+        });
+
         if (this.customer.id) {
             this.title = `Edit Customer ${this.customer.id}`;
         } else {
