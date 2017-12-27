@@ -15,7 +15,8 @@ export class CustomerService {
     }
 
     getCustomers(): Promise<CustomerRecord[]> {
-        return this.http.get(this.customerURL)
+        return this.http
+            .get(this.customerURL)
             .toPromise()
             .then(this.extractData)
             .catch(this.handleError);
@@ -38,11 +39,31 @@ export class CustomerService {
             .catch(this.handleError);
     }
 
+    updateCustomer(customer: CustomerRecord): Promise<CustomerRecord> {
+        const body = new HttpParams()
+            .set('id', customer.id)
+            .set('name', customer.name)
+            .set('email', customer.email)
+            .set('phone', customer.phone)
+            .set('address', customer.address)
+            .set('city', customer.city)
+            .set('state', customer.state)
+            .set('zipcode', customer.zipcode);
+
+        const url = `${this.customerURL}/${customer.id}`;
+        return this.http
+            .put(url, body, {headers: this.headers})
+            .toPromise()
+            .then(() => customer)
+            .catch(this.handleError);
+    }
+
     deleteCustomer(customer: CustomerRecord): Promise<void> {
         const url = `${this.customerURL}/${customer.id}`;
-        return this.http.delete(url, { headers: this.headers })
+        return this.http
+            .delete(url, { headers: this.headers })
             .toPromise()
-            .then(() => null)
+            .then(() => customer)
             .catch(this.handleError);
     }
 

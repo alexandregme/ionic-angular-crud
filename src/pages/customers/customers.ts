@@ -4,8 +4,7 @@ import 'rxjs/add/operator/map';
 
 import { CustomerService } from '../../services/customer.service'
 import { CustomerRecord } from '../../records/customer';
-import { CustomerFormNewPage } from '../customer-form-new/customer-form-new';
-import { CustomerFormEditPage } from '../customer-form-edit/customer-form-edit';
+import { CustomerFormPage } from '../customer-form/customer-form';
 
 @Component({
     selector: 'page-costumers',
@@ -17,11 +16,11 @@ export class CustomersPage {
     constructor(public navCtrl: NavController, public customerService: CustomerService) {}
 
     openCustomerForm() {
-        this.navCtrl.push(CustomerFormNewPage);
+        this.navCtrl.push(CustomerFormPage);
     }
 
     openEditCustomerForm(customer) {
-        this.navCtrl.push(CustomerFormEditPage, customer);
+        this.navCtrl.push(CustomerFormPage, customer);
     }
 
     deleteCustomer(customer) {

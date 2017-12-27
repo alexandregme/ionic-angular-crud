@@ -9,8 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MyApp } from './app.component';
 import { CustomerService } from '../services/customer.service';
 import { CustomersPage } from '../pages/customers/customers';
-import { CustomerFormNewPage } from '../pages/customer-form-new/customer-form-new';
-import { CustomerFormEditPage } from '../pages/customer-form-edit/customer-form-edit';
+import { CustomerFormPage } from '../pages/customer-form/customer-form';
 
 export const deepLinkConfig: DeepLinkConfig = <DeepLinkConfig>{
   links: [
@@ -19,13 +18,13 @@ export const deepLinkConfig: DeepLinkConfig = <DeepLinkConfig>{
       name: "Customer List",
       segment: "customers"
     },{
-      component: CustomerFormNewPage,
+      component: CustomerFormPage,
       name: "Customer Form New",
       segment: "customer",
       defaultHistory: [CustomersPage]
     }, {
-      component: CustomerFormEditPage,
-      name: "Customer  Form Edit",
+      component: CustomerFormPage,
+      name: "Customer Form Edit",
       segment: "customer/:id",
       defaultHistory: [CustomersPage]
     }
@@ -36,8 +35,7 @@ export const deepLinkConfig: DeepLinkConfig = <DeepLinkConfig>{
   declarations: [
     MyApp,
     CustomersPage,
-    CustomerFormNewPage,
-    CustomerFormEditPage
+    CustomerFormPage
   ],
   imports: [
     BrowserModule,
@@ -49,8 +47,7 @@ export const deepLinkConfig: DeepLinkConfig = <DeepLinkConfig>{
   entryComponents: [
     MyApp,
     CustomersPage,
-    CustomerFormNewPage,
-    CustomerFormEditPage
+    CustomerFormPage
   ],
   providers: [
     StatusBar,
