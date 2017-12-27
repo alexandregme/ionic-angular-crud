@@ -47,8 +47,7 @@ export class CustomerService {
     }
 
     private extractData(res: Response) {
-        let body = res;
-        return body || {};
+        return res || {};
     }
 
     private handleError(error: any): Promise<any> {

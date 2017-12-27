@@ -3,31 +3,30 @@ import { NavController } from 'ionic-angular';
 import 'rxjs/add/operator/map';
 
 import { CustomerService } from '../../services/customer.service'
-import { CustomerForm } from '../customer-form/customer-form';
 import { CustomerRecord } from '../../records/customer';
+import { CustomerFormNewPage } from '../customer-form-new/customer-form-new';
+import { CustomerFormEditPage } from '../customer-form-edit/customer-form-edit';
 
 @Component({
     selector: 'page-costumers',
     templateUrl: 'customers.html'
 })
-export class Customers {
+export class CustomersPage {
     public customers: Array<CustomerRecord>;
     
     constructor(public navCtrl: NavController, public customerService: CustomerService) {}
 
-    openCustomerForm(idCustomer) {
-        if (idCustomer){
-            this.navCtrl.push(CustomerForm, {
-                id: idCustomer
-            });
-        }else{
-            this.navCtrl.push(CustomerForm);
-        }
+    openCustomerForm() {
+        this.navCtrl.push(CustomerFormNewPage);
+    }
+
+    openEditCustomerForm(customer) {
+        this.navCtrl.push(CustomerFormEditPage, customer);
     }
 
     deleteCustomer(customer) {
         this.customerService.deleteCustomer(customer).then(()=>{
-                this.populateCustomers()
+            this.populateCustomers()
         });
     }
 

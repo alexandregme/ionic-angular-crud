@@ -8,25 +8,26 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { MyApp } from './app.component';
 import { CustomerService } from '../services/customer.service';
-import { Customers } from '../pages/customers/customers';
-import { CustomerForm } from '../pages/customer-form/customer-form';
+import { CustomersPage } from '../pages/customers/customers';
+import { CustomerFormNewPage } from '../pages/customer-form-new/customer-form-new';
+import { CustomerFormEditPage } from '../pages/customer-form-edit/customer-form-edit';
 
 export const deepLinkConfig: DeepLinkConfig = <DeepLinkConfig>{
   links: [
     {
-      component: Customers,
-      name: "Customer",
+      component: CustomersPage,
+      name: "Customer List",
       segment: "customers"
     },{
-      component: CustomerForm,
-      name: "Customer detail",
+      component: CustomerFormNewPage,
+      name: "Customer Form New",
       segment: "customer",
-      defaultHistory: [Customers]
+      defaultHistory: [CustomersPage]
     }, {
-      component: CustomerForm,
-      name: "Customer detail",
+      component: CustomerFormEditPage,
+      name: "Customer  Form Edit",
       segment: "customer/:id",
-      defaultHistory: [Customers]
+      defaultHistory: [CustomersPage]
     }
   ]
 };
@@ -34,8 +35,9 @@ export const deepLinkConfig: DeepLinkConfig = <DeepLinkConfig>{
 @NgModule({
   declarations: [
     MyApp,
-    Customers,
-    CustomerForm
+    CustomersPage,
+    CustomerFormNewPage,
+    CustomerFormEditPage
   ],
   imports: [
     BrowserModule,
@@ -46,8 +48,9 @@ export const deepLinkConfig: DeepLinkConfig = <DeepLinkConfig>{
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    Customers,
-    CustomerForm
+    CustomersPage,
+    CustomerFormNewPage,
+    CustomerFormEditPage
   ],
   providers: [
     StatusBar,
