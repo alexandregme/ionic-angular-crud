@@ -41,7 +41,7 @@ export class CustomerService {
 
     updateCustomer(customer: CustomerRecord): Promise<CustomerRecord> {
         const body = new HttpParams()
-            .set('id', customer.id)
+            .set('id', customer.id.toString())
             .set('name', customer.name)
             .set('email', customer.email)
             .set('phone', customer.phone)
