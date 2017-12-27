@@ -15,10 +15,15 @@ export class CustomerFormPage {
     public title: string;
     public loading: Loading;
 
-    constructor(public navCtrl: NavController, public navParams: NavParams, public customerService: CustomerService, public loadingCtrl: LoadingController) {
+    constructor(
+        public navCtrl: NavController,
+        public navParams: NavParams,
+        public customerService: CustomerService,
+        public loadingCtrl: LoadingController
+    ) {
         this.customer = navParams.data;
 
-        if (this.customer.id && !this.customer.address) {
+        if (this.customer && this.customer.id && !this.customer.address) {
             this.navCtrl.push(CustomersPage);
         }
     }

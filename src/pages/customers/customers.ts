@@ -14,7 +14,12 @@ export class CustomersPage {
     public customers: Array<CustomerRecord>;
     public loading: Loading;
     
-    constructor(private viewCtrl: ViewController, public navCtrl: NavController, public customerService: CustomerService, public loadingCtrl: LoadingController) {}
+    constructor(
+        private viewCtrl: ViewController,
+        public navCtrl: NavController,
+        public customerService: CustomerService,
+        public loadingCtrl: LoadingController
+    ) {}
 
     openCustomerForm() {
         this.navCtrl.push(CustomerFormPage);

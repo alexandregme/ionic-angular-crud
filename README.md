@@ -3,7 +3,7 @@ This project is a simple CRUD implementation, using Ionic 3 and Angular 5.
 
 ### Prerequisites
 
-To use Ionics you need to make sure you have node 6.x version installed at your local.
+To use Ionic you need to make sure you have node 6.x version installed at your local.
 
 ### Installing and Running
 
