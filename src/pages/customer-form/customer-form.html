@@ -6,37 +6,37 @@
 
 <ion-content>
     <ion-item>{{title}}</ion-item>
-    <form (ngSubmit)="saveCustomer()">
+    <form [formGroup]="formGroup" (ngSubmit)="saveCustomer()">
         <ion-item>
             <ion-label color="primary" floating>Name</ion-label>
-            <ion-input type="text" [(ngModel)]="customer.name" name="name"></ion-input>
+            <ion-input type="text" [(ngModel)]="customer.name" name="name" formControlName="name"></ion-input>
         </ion-item>
         <ion-item>
             <ion-label color="primary" floating>E-mail</ion-label>
-            <ion-input type="email" [(ngModel)]="customer.email" name="email"></ion-input>
+            <ion-input type="email" [(ngModel)]="customer.email" formControlName="email"></ion-input>
         </ion-item>
         <ion-item>
             <ion-label color="primary" floating>Phone</ion-label>
-            <ion-input type="tel" [(ngModel)]="customer.phone" name="phone" mask="999-999-9999"></ion-input>
+            <ion-input type="tel" [(ngModel)]="customer.phone" formControlName="phone" mask="999-999-9999"></ion-input>
         </ion-item>
         <ion-item>
             <ion-label color="primary" floating>Address</ion-label>
-            <ion-input type="text" [(ngModel)]="customer.address" name="address"></ion-input>
+            <ion-input type="text" [(ngModel)]="customer.address" formControlName="address"></ion-input>
         </ion-item>
         <ion-item>
             <ion-label color="primary" floating>City</ion-label>
-            <ion-input type="text" [(ngModel)]="customer.city" name="city"></ion-input>
+            <ion-input type="text" [(ngModel)]="customer.city" formControlName="city"></ion-input>
         </ion-item>
         <ion-item>
             <ion-label color="primary" floating>State</ion-label>
-            <ion-input type="text" [(ngModel)]="customer.state" name="state"></ion-input>
+            <ion-input type="text" [(ngModel)]="customer.state" formControlName="state"></ion-input>
         </ion-item>
         <ion-item>
             <ion-label color="primary" floating>Zipcode</ion-label>
-            <ion-input type="number" [(ngModel)]="customer.zipcode" name="zipcode" mask="99999"></ion-input>
+            <ion-input type="number" [(ngModel)]="customer.zipcode" formControlName="zipcode" mask="99999"></ion-input>
         </ion-item>
         <ion-buttons end>
-            <button ion-button type="submit">
+            <button ion-button type="submit" [disabled]="!formGroup.valid">
                 <ion-icon name="checkmark"></ion-icon>
                 Save
             </button>

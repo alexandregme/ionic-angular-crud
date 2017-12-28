@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { NavController, NavParams, LoadingController, Loading } from 'ionic-angular';
 import 'rxjs/add/operator/map';
 
@@ -14,17 +15,41 @@ export class CustomerFormPage {
     public customer: CustomerRecord;
     public title: string;
     public loading: Loading;
+    private formGroup : FormGroup;
 
     constructor(
         public navCtrl: NavController,
         public navParams: NavParams,
         public customerService: CustomerService,
-        public loadingCtrl: LoadingController
+        public loadingCtrl: LoadingController,
+        private formBuilder: FormBuilder
     ) {
         this.customer = navParams.data;
 
         if (this.customer && this.customer.id && !this.customer.address) {
             this.navCtrl.push(CustomersPage);
+        }
+
+        if(this.customer.id){
+            this.formGroup = this.formBuilder.group({
+                name: [''],
+                email: [''],
+                phone: [''],
+                address: ['', Validators.required],
+                city: [''],
+                state: [''],
+                zipcode: ['']
+            });
+        }else{
+            this.formGroup = this.formBuilder.group({
+                name: ['', Validators.required],
+                email: ['', Validators.required],
+                phone: ['', Validators.required],
+                address: ['', Validators.required],
+                city: ['', Validators.required],
+                state: ['', Validators.required],
+                zipcode: ['', Validators.required]
+            });
         }
     }
 
@@ -42,7 +67,7 @@ export class CustomerFormPage {
                 });
         } else {
             this.customerService.createCustomer(this.customer)
-                .then((response) => {
+                .then(() => {
                     this.navCtrl.push(CustomersPage);
                     this.dismissLoading();
                 })
