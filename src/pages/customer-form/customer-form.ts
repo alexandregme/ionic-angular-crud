@@ -31,15 +31,25 @@ export class CustomerFormPage {
     saveCustomer() {
         this.presentLoading();
         if (this.customer.id) {
-            this.customerService.updateCustomer(this.customer).then(() => {
-                this.navCtrl.push(CustomersPage)
-            })
+            this.customerService
+                .updateCustomer(this.customer)
+                .then(() => {
+                    this.navCtrl.push(CustomersPage);
+                    this.dismissLoading();
+                })
+                .catch(() =>{
+                    this.dismissLoading();
+                });
         } else {
-            this.customerService.createCustomer(this.customer).then(() => {
-                this.navCtrl.push(CustomersPage)
-            })
+            this.customerService.createCustomer(this.customer)
+                .then((response) => {
+                    this.navCtrl.push(CustomersPage);
+                    this.dismissLoading();
+                })
+                .catch(() =>{
+                    this.dismissLoading();
+                });
         }
-        this.dismissLoading();
     }
 
     dismissLoading() {

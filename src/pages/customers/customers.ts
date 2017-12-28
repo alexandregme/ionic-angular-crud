@@ -33,16 +33,28 @@ export class CustomersPage {
 
     deleteCustomer(customer) {
         this.presentLoading();
-        this.customerService.deleteCustomer(customer).then(()=>{
-            this.populateCustomers()
-        });
-        this.dismissLoading();
+        this.customerService
+            .deleteCustomer(customer)
+            .then(()=>{
+                this.dismissLoading();
+                this.populateCustomers();
+            })
+            .catch(() =>{
+                this.dismissLoading();
+            });
     }
 
     populateCustomers(){
         this.presentLoading();
-        this.customerService.getCustomers().then(customers => this.customers = customers);
-        this.dismissLoading();
+        this.customerService
+            .getCustomers()
+            .then((customers) => {
+                this.customers = customers;
+                this.dismissLoading();
+            })
+            .catch(() =>{
+                this.dismissLoading();
+            });
     }
 
     dismissLoading() {
