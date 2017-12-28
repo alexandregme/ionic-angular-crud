@@ -47,14 +47,13 @@ export class CustomerFormPage {
     }
 
     presentLoading() {
+        this.loading = this.loadingCtrl.create({
+            content: "Please wait...",
+        });
         this.loading.present();
     }
 
     ngOnInit() {
-        this.loading = this.loadingCtrl.create({
-            content: "Please wait...",
-        });
-
         if (this.customer.id) {
             this.title = `Edit Customer ${this.customer.id}`;
         } else {
