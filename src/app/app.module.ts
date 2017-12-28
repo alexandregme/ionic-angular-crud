@@ -5,7 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { Ionic2MaskDirective } from "ionic2-mask-directive";
+import { Ionic2MaskDirective } from 'ionic2-mask-directive';
 
 import { MyApp } from './app.component';
 import { CustomerService } from '../services/customer.service';

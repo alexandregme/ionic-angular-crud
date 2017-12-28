@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/toPromise';
 
 import { CustomerRecord } from '../records/customer';
-import { BaseApiService } from "./base-api.service";
+import { BaseApiService } from './base-api.service';
 import { ApiVariables } from './api-variables';
 
 
