@@ -30,27 +30,15 @@ export class CustomerFormPage {
             this.navCtrl.push(CustomersPage);
         }
 
-        if(this.customer.id){
-            this.formGroup = this.formBuilder.group({
-                name: [''],
-                email: [''],
-                phone: [''],
-                address: ['', Validators.required],
-                city: [''],
-                state: [''],
-                zipcode: ['']
-            });
-        }else{
-            this.formGroup = this.formBuilder.group({
-                name: ['', Validators.required],
-                email: ['', Validators.required],
-                phone: ['', Validators.required],
-                address: ['', Validators.required],
-                city: ['', Validators.required],
-                state: ['', Validators.required],
-                zipcode: ['', Validators.required]
-            });
-        }
+        this.formGroup = this.formBuilder.group({
+            name: ['', Validators.required],
+            email: ['', Validators.required],
+            phone: ['', Validators.required],
+            address: ['', Validators.required],
+            city: ['', Validators.required],
+            state: ['', Validators.required],
+            zipcode: ['', Validators.required]
+        });
     }
 
     saveCustomer() {
