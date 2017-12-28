@@ -43,7 +43,7 @@ export const deepLinkConfig: DeepLinkConfig = <DeepLinkConfig>{
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    IonicModule.forRoot(MyApp, {}, deepLinkConfig)
+    IonicModule.forRoot(MyApp, {locationStrategy: 'path'}, deepLinkConfig)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
