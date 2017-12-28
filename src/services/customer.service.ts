@@ -15,6 +15,14 @@ export class CustomerService extends BaseApiService {
         super(http);
     }
 
+    saveCustomer(customer: CustomerRecord): Promise<CustomerRecord>{
+        if (customer.id){
+            return this.updateCustomer(customer);
+        }else{
+            return this.createCustomer(customer);
+        }
+    }
+
     getCustomers(): Promise<CustomerRecord[]> {
         return this._get(this.customerURL)
     }

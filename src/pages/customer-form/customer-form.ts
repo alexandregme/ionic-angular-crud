@@ -55,27 +55,17 @@ export class CustomerFormPage {
 
     saveCustomer() {
         this.presentLoading();
-        if (this.customer.id) {
-            this.customerService
-                .updateCustomer(this.customer)
-                .then(() => {
-                    this.navCtrl.push(CustomersPage);
-                    this.dismissLoading();
-                })
-                .catch(() =>{
-                    this.dismissLoading();
-                });
-        } else {
-            this.customerService.createCustomer(this.customer)
-                .then(() => {
-                    this.navCtrl.push(CustomersPage);
-                    this.dismissLoading();
-                })
-                .catch(() =>{
-                    this.dismissLoading();
-                });
-        }
+
+        this.customerService.saveCustomer(this.customer)
+            .then(() => {
+                this.navCtrl.push(CustomersPage);
+                this.dismissLoading();
+            })
+            .catch(() => {
+                this.dismissLoading();
+            });
     }
+
 
     dismissLoading() {
         this.loading.dismiss();
