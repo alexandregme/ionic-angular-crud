@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ViewController, NavController, LoadingController, Loading, AlertController} from 'ionic-angular';
+import { ViewController, NavController, LoadingController, Loading, AlertController, Alert} from 'ionic-angular';
 import 'rxjs/add/operator/map';
 
 import { CustomerService } from '../../services/customer.service'
